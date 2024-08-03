@@ -1,0 +1,16 @@
+{
+  "name": "barbearia",
+  "version": "1.0.0",
+  "description": "Website completo para uma barbearia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "João Pedro Bernardo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql": "^2.18.1"
+  },
+  "type": "module"
+}
