@@ -1,24 +1,12 @@
-import { DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, configuracao } from "./config.js"
-// const { createConnection } = require("mysql")
-import * as mysql from 'mysql'
+import * as mysql from 'mysql2'
+import dotenv from 'dotenv'
+dotenv.config()
 
-async function main() {
-    await configuracao()
-    const connection = mysql.createConnection({
-        host: DB_HOSTNAME,
-        user: DB_USERNAME,
-        password: DB_PASSWORD,
-        database: "barbearia"
-    })
+const connection = mysql.createConnection({
+    host: process.env.DB_HOSTNAME,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
+}).promise()
     
-    connection.connect((err) => {
-        if (err) {
-            console.error('Erro ao conectar ao banco de dados:', err.stack);
-            return;
-        }
-        console.log('Conexão estabelecida com sucesso como ID:', connection.threadId);
-    });
-
-}
-
-main()
+console.log(await connection.query('select * from barbeiros'))
