@@ -1,12 +1,24 @@
-import * as mysql from 'mysql2'
-import dotenv from 'dotenv'
+const mysql = require('mysql2/promise')
+const dotenv = require('dotenv')
 dotenv.config()
 
-const connection = mysql.createConnection({
-    host: process.env.DB_HOSTNAME,
-    user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-}).promise()
-    
-console.log(await connection.query('select * from barbeiros'))
+async function criarConexao(){
+    const conexao = await mysql.createConnection({
+        host: process.env.DB_HOSTNAME,
+        user: process.env.DB_USERNAME,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME
+    })
+    return conexao
+}
+
+
+async function getBarbeiros(){
+    const conexao = await criarConexao()
+    const [results] = await conexao.query("SELECT * FROM barbeiros")
+    return results
+}
+
+module.exports = {
+    getBarbeiros,
+}
