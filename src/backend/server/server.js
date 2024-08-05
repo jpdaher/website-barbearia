@@ -63,4 +63,20 @@ app.get('/barbeiros/especialidade/:id', async (req, res) => {
     res.json(barbeiros)
 })
 
+app.get('/barbeiros/disponibilidade', async (req, res) => {
+    const { idbarbeiro, data, horario } = req.query
+    const disponibilidade = await database.verificarDisponibilidade(idbarbeiro, data, horario)
+
+    if (disponibilidade) {
+        res.json({ disponivel: true, idcliente:req.session.userId })
+    } else {
+        res.json({ disponivel: false })
+    }
+})
+
+app.post('/barbeiros/agendar', async (req, res) => {
+    const { idcliente, idbarbeiro, especialidade, data, horario } = req.query
+    await database.agendar(idcliente, idbarbeiro, especialidade, data, horario )
+})
+
 app.listen(PORT, () => console.log(`Server now listening on port http://localhost:${PORT}`))

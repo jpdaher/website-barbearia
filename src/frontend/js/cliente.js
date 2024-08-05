@@ -20,6 +20,25 @@ document.querySelector('#filtrar-barbeiros').addEventListener('click', async (e)
     })
 })
 
+document.querySelector('#agendar').addEventListener('click', async () => {
+    const idbarbeiro = document.getElementById('barbeiro').value
+    const data = document.getElementById('data').value
+    const horario = document.getElementById('horario').value
+    const especialidade = document.getElementById('especialidade').value
+
+    const response = await fetch(`/barbeiros/disponibilidade?idbarbeiro=${idbarbeiro}&data=${data}&horario=${horario}`)
+    const resultado = await response.json()
+    console.log(resultado)
+
+    if (resultado.disponivel) {
+        await fetch(`/barbeiros/agendar?idcliente=${resultado.idcliente}&idbarbeiro=${idbarbeiro}&especialidade=${especialidade}&data=${data}&horario=${horario}`, {
+            method: 'POST'
+        })
+    } else {
+        window.alert('Horário indisponível para este barbeiro')
+    }
+})
+
 async function carregarAgendamentos() {
     const response = await fetch('/cliente/agendamentos')
     const agendamentos = await response.json()

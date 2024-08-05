@@ -43,9 +43,22 @@ async function deletarAgendamento(id){
     await conexao.query("DELETE FROM agendamentos WHERE idagendamentos = ?", [id])
 }
 
+async function verificarDisponibilidade(idbarbeiro, data, horario){
+    const conexao = await criarConexao()
+    const [results] = await conexao.query("SELECT * FROM agendamentos WHERE idbarbeiros = ? AND data = ? AND horario = ?", [idbarbeiro, data, horario])
+    return results.length == 0
+}
+
+async function agendar(idclientes, idbarbeiros, especialidade, data, horario){
+    const conexao = await criarConexao()
+    await conexao.query("INSERT INTO agendamentos(idclientes, idbarbeiros, idespecialidades, data, horario) VALUES (?, ?, ?, ?, ?)", [idclientes, idbarbeiros, especialidade, data, horario])
+}
+
 module.exports = {
     getBarbeirosEspecialidade,
     getUsuario,
     getAgendamentosUsuario,
     deletarAgendamento,
+    verificarDisponibilidade,
+    agendar,
 }
