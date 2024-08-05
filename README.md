@@ -35,7 +35,7 @@ Aqui vai uma breve descrição da organização de diretórios do projeto:
 2. Instale o [Node.js](https://nodejs.org/en/download/package-manager)
 3. Verifique instalação do node com os comandos `node -v` e `npm -v`
 4. Baixe e extraia o arquivo ZIP do repositório ou clone com [git](https://git-scm.com/)
-5. Rode o script sql de geração do banco de dados em src/backend/database
+5. Rode o script sql de geração do banco de dados que se encontra em src/backend/database
 6. Altere o arquivo .env (se necessário)
 7. Abra o CMD na pasta principal do projeto (barbearia)
 8. Rode os comandos `npm install` e `npm run test`
