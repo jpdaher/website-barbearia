@@ -4,13 +4,25 @@ dotenv.config()
 const database = require('../database/database')
 const PORT = 8080
 const app = express()
-const filesDir = '../../frontend/html'
+const filesDir = './src/frontend/'
 app.use(express.static(filesDir))
+app.use(express.urlencoded({ extended: true }))
 
 
 
+// LOGIN PAGE
 app.get('/', (req, res) => {
-    res.sendFile('login.html', { root: filesDir })
+    res.sendFile('html/login.html', { root: filesDir })
+})
+
+app.post('/login', async (req, res) => {
+    const { email, senha } = req.body
+    const usuario = await database.getUsuario(email, senha)
+    if (usuario) {
+        res.json({ sucesso: true, message: "Login bem sucedido!"})
+    } else {
+        res.json({ sucesso: false, message: "Dados incorretos ou usuário não cadastrado."})
+    }
 })
 
 app.get('/barbeiros', async (req, res) => {

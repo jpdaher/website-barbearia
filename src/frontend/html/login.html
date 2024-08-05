@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
     <title>Login</title>
 </head>
 <body>
     <header>
         <h2>Barbearia</h2>
     </header>
-    <form>
+    <form method="POST" action="/login">
         <p>Email</p>
-        <input type="text">
+        <input type="text" name="email" id="email">
         <p>Senha</p>
-        <input type="text">
+        <input type="text" name="senha" id="senha">
         <button>Login</button>
-        <a href="./cadastro.html">Não tem uma conta? Cadastre-se aqui</a>
+        <a href="html/cadastro.html">Não tem uma conta? Cadastre-se aqui</a>
     </form>
+    <script src="js/login.js"></script>
 </body>
 </html>

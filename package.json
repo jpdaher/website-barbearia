@@ -4,7 +4,7 @@
   "description": "Website completo para uma barbearia",
   "main": "./src/backend/server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./src/backend/server/server.js"
   },
   "author": "João Pedro Bernardo",
   "license": "ISC",

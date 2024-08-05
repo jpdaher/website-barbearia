@@ -13,12 +13,23 @@ async function criarConexao(){
 }
 
 
+// FUNÇÕES PARA O FUNCIONAMENTO DO SITE
 async function getBarbeiros(){
     const conexao = await criarConexao()
     const [results] = await conexao.query("SELECT * FROM barbeiros")
     return results
 }
 
+async function getUsuario(username, password){
+    const conexao = await criarConexao()
+    const [results] = await conexao.query("SELECT * FROM clientes WHERE email = ? AND senha = ?", [username, password])
+    if (results[0] == undefined) {
+        return false
+    }
+    return results[0]
+}
+
 module.exports = {
     getBarbeiros,
+    getUsuario,
 }
