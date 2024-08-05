@@ -14,9 +14,9 @@ async function criarConexao(){
 
 
 // FUNÇÕES PARA O FUNCIONAMENTO DO SITE
-async function getBarbeiros(){
+async function getBarbeirosEspecialidade(id){
     const conexao = await criarConexao()
-    const [results] = await conexao.query("SELECT * FROM barbeiros")
+    const [results] = await conexao.query("SELECT idbarbeiros, nome FROM barbeiros JOIN barbeiros_especialidades e USING(idbarbeiros) WHERE e.idespecialidades = ?", [id])
     return results
 }
 
@@ -29,7 +29,23 @@ async function getUsuario(username, password){
     return results[0]
 }
 
+async function getAgendamentosUsuario(id){
+    const conexao = await criarConexao()
+    const [results] = await conexao.query("SELECT a.idagendamentos AS id, DATE_FORMAT(a.data, '%d/%m/%Y') as data, DATE_FORMAT(a.horario, '%H:%i') as horario, b.nome as barbeiro, e.nome as especialidade FROM agendamentos a INNER JOIN especialidades e ON a.idespecialidades = e.idespecialidades INNER JOIN barbeiros b ON a.idbarbeiros = b.idbarbeiros WHERE a.idclientes = ?", [id])
+    if (results[0] == undefined) {
+        return false
+    }
+    return results
+}
+
+async function deletarAgendamento(id){
+    const conexao = await criarConexao()
+    await conexao.query("DELETE FROM agendamentos WHERE idagendamentos = ?", [id])
+}
+
 module.exports = {
-    getBarbeiros,
+    getBarbeirosEspecialidade,
     getUsuario,
+    getAgendamentosUsuario,
+    deletarAgendamento,
 }

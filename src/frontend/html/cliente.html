@@ -14,12 +14,35 @@
     <main>
         <section id="agendar">
             <h3>Agendar</h3>
-            <input type="checkbox" class="especialidade" id="sobrancelha">Sobrancelha</input>
-            <input type="checkbox" class="especialidade" id="sobrancelha">Barba</input>
-            <input type="checkbox" class="especialidade" id="sobrancelha">Tesoura</input>
-            <select id="barbeiros">
-                <option value="Selecione um barbeiro">Selecione um barbeiro</option>
-            </select>
+            <form>
+                <p>Especialidade:</p>
+                <select id="especialidade">
+                    <option value="">Selecione uma especialidade</option>
+                    <option value="1">Barba</option>
+                    <option value="2">Corte com tesoura</option>
+                    <option value="3">Sobrancelha</option>
+                </select>
+                <button id="filtrar-barbeiros">Filtrar</button>
+                <p>Barbeiro:</p>
+                <select id="barbeiro">
+                    <option value="">Selecione um barbeiro</option>
+                </select>
+                <p>Data:</p>
+                <input type="date" id="data" required>
+                <p>Hora:</p>
+                <select id="horario" required>
+                    <option value="08:00">08:00</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="18:00">17:00</option>
+                </select>
+                <button type="submit">Agendar</button>
+            </form>
         </section>
         <section id="agendamentos">
             <h3>Agendamentos</h3>

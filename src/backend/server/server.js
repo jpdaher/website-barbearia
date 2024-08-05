@@ -30,6 +30,16 @@ app.get('/cliente', (req, res) => {
     }
 })
 
+app.get('/cliente/agendamentos', async (req, res) => {
+    const agendamentos = await database.getAgendamentosUsuario(req.session.userId)
+    res.json(agendamentos)
+})
+
+app.delete('/cliente/agendamentos/:id', async (req, res) => {
+    const id = req.params.id
+    await database.deletarAgendamento(id)
+})
+
 app.post('/login', async (req, res) => {
     const { email, senha } = req.body
     const usuario = await database.getUsuario(email, senha)
@@ -47,13 +57,10 @@ app.get('/logout', async (req, res) => {
     })
 })
 
-app.get('/barbeiros', async (req, res) => {
-    if (req.session.userId) {
-        const barbeiros = await database.getBarbeiros()
-        res.json(barbeiros)
-    } else {
-        res.redirect('/')
-    }
+app.get('/barbeiros/especialidade/:id', async (req, res) => {
+    const id = req.params.id
+    const barbeiros = await database.getBarbeirosEspecialidade(id)
+    res.json(barbeiros)
 })
 
 app.listen(PORT, () => console.log(`Server now listening on port http://localhost:${PORT}`))
