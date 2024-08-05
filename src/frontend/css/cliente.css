@@ -37,3 +37,12 @@ main section {
     align-items: center;
     width: 50%;
 }
+
+table, thead, tbody, td, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 5px;
+}

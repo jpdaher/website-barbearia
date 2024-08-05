@@ -7,7 +7,7 @@ document.querySelector("form").addEventListener('submit', async (e) => {
     })
     const resultado = await response.json()
     if (resultado.sucesso) {
-        window.alert(resultado.message)
+        window.location.href = '/cliente'
     } else {
         window.alert(resultado.message)
     }
