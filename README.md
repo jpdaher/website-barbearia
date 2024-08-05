@@ -15,6 +15,9 @@ Aqui vai uma breve descrição da organização de diretórios do projeto:
 |————|————|—— server/ (contém a lógica do servidor, ponto de entrada do projeto)
 |————|—— frontend/ (contém o html, css e javascript do frontend)
 |—— .env (variáveis de ambiente da configuração de conexão com o banco de dados)
+|—— README.md (é o arquivo que você está lendo)
+|—— package-lock.json (↓)
+|—— package.json (arquivos que mantém registro das dependências do projeto)
 
 </pre>
 
