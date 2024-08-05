@@ -24,7 +24,7 @@ Aqui vai uma breve descrição da organização de diretórios do projeto:
 ## Instruções de instalação 
 1. Instale o [MySQL](https://dev.mysql.com/downloads/installer/)
 2. Instale o [Node.js](https://nodejs.org/en/download/package-manager)
-3. Verifique instalação do node
+3. Verifique instalação do node com os comandos `node -v` e `npm -v`
 4. Instale o git
 5. Clone o repositório
 6. Altere o arquivo .env (se necessário)
