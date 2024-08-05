@@ -25,9 +25,9 @@ Aqui vai uma breve descrição da organização de diretórios do projeto:
 1. Instale o [MySQL](https://dev.mysql.com/downloads/installer/)
 2. Instale o [Node.js](https://nodejs.org/en/download/package-manager)
 3. Verifique instalação do node com os comandos `node -v` e `npm -v`
-4. Instale o git
-5. Clone o repositório
+4. Baixe e extraia o arquivo ZIP do repositório ou clone com git
+5. Rode o script sql de geração do banco de dados em src/backend/database
 6. Altere o arquivo .env (se necessário)
 7. Abra o CMD na pasta principal do projeto (barbearia)
-8. npm install
-9. npm run test
+8. Rode os comandos `npm install` e `npm run test`
+9. Um link aparecerá no CMD, acessando esse link no browser você será redirecionado para a página de login do site
