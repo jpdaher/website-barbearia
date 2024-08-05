@@ -8,7 +8,13 @@ Um projeto fullstack para o funcionamento do website de uma barbearia que atende
 Aqui vai uma breve descrição da organização de diretórios do projeto:
 
 <pre>
+|—— node_modules/ (pacotes necessários para funcionamento, ignorar)
 |—— src/
+|————|—— backend/
+|————|————|—— database/ (contém a lógica e arquivo de criação do banco de dados)
+|————|————|—— server/ (contém a lógica do servidor, ponto de entrada do projeto)
+|————|—— frontend/ (contém o html, css e javascript do frontend)
+|—— .env (variáveis de ambiente da configuração de conexão com o banco de dados)
 
 </pre>
 
