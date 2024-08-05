@@ -4,6 +4,15 @@ Um projeto fullstack para o funcionamento do website de uma barbearia que atende
 - Cadastro e login de usuarios
 - Criar e visualizar agendamentos com barbeiros
 
+Funcionalidades implementadas:
+- Cadastro e login de usuários
+- Visualizar e deletar agendamentos com barbeiros
+
+A serem implementadas:
+- Cadastro de barbeiros
+- Criação de agendamentos
+- Login como administrador
+
 ## Estrutura do projeto
 Aqui vai uma breve descrição da organização de diretórios do projeto:
 
@@ -31,3 +40,4 @@ Aqui vai uma breve descrição da organização de diretórios do projeto:
 7. Abra o CMD na pasta principal do projeto (barbearia)
 8. Rode os comandos `npm install` e `npm run test`
 9. Um link aparecerá no CMD, acessando esse link no browser você será redirecionado para a página de login do site
+10. Já existe um usuário cadastrado com um agendamento, seu login é `email: ricardo@email.com` e `senha: 1234`
