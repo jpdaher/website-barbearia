@@ -54,6 +54,11 @@ async function agendar(idclientes, idbarbeiros, especialidade, data, horario){
     await conexao.query("INSERT INTO agendamentos(idclientes, idbarbeiros, idespecialidades, data, horario) VALUES (?, ?, ?, ?, ?)", [idclientes, idbarbeiros, especialidade, data, horario])
 }
 
+async function cadastrar(nome, email, senha){
+    const conexao = await criarConexao()
+    await conexao.query("INSERT INTO clientes(nome, email, senha) VALUES (?, ?, ?)", [nome, email, senha])
+}
+
 module.exports = {
     getBarbeirosEspecialidade,
     getUsuario,
@@ -61,4 +66,5 @@ module.exports = {
     deletarAgendamento,
     verificarDisponibilidade,
     agendar,
+    cadastrar,
 }

@@ -29,10 +29,12 @@ document.querySelector('#agendar').addEventListener('click', async () => {
     const response = await fetch(`/barbeiros/disponibilidade?idbarbeiro=${idbarbeiro}&data=${data}&horario=${horario}`)
     const resultado = await response.json()
     console.log(resultado)
+    const idcliente = resultado.idcliente
 
     if (resultado.disponivel) {
-        await fetch(`/barbeiros/agendar?idcliente=${resultado.idcliente}&idbarbeiro=${idbarbeiro}&especialidade=${especialidade}&data=${data}&horario=${horario}`, {
-            method: 'POST'
+        await fetch(`/barbeiros/agendar`, {
+            method: 'POST',
+            body: JSON.stringify({ idcliente, idbarbeiro, especialidade, data, horario })
         })
     } else {
         window.alert('Horário indisponível para este barbeiro')

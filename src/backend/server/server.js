@@ -8,6 +8,7 @@ const app = express()
 const filesDir = './src/frontend/'
 app.use(express.static(filesDir))
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 app.use(session({
     secret: '123456',
     resave: false,
@@ -28,6 +29,15 @@ app.get('/cliente', (req, res) => {
     } else {
         res.redirect('/')
     }
+})
+
+app.post('/cadastrar', async (req, res) => {
+    const { nome, email, senha } = req.body
+    await database.cadastrar(nome, email, senha)
+})
+
+app.get('/cadastro', (req, res) => {
+    res.sendFile('html/cadastro.html', { root: filesDir })
 })
 
 app.get('/cliente/agendamentos', async (req, res) => {
@@ -75,7 +85,7 @@ app.get('/barbeiros/disponibilidade', async (req, res) => {
 })
 
 app.post('/barbeiros/agendar', async (req, res) => {
-    const { idcliente, idbarbeiro, especialidade, data, horario } = req.query
+    const { idcliente, idbarbeiro, especialidade, data, horario } = req.body
     await database.agendar(idcliente, idbarbeiro, especialidade, data, horario )
 })
 

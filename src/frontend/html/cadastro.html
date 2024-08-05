@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/cadastro.css">
+    <link rel="stylesheet" type="text/css" href="css/cadastro.css">
     <title>Cadastre-se</title>
 </head>
 <body>
     <header>
-        <h2>Barbearia</h2>
+        <h2>Barbearia - Cadastro</h2>
     </header>
     <form>
+        <p>Nome</p>
+        <input type="text" id="nome" required>
         <p>Email</p>
-        <input type="text">
+        <input type="text" id="email" required>
         <p>Senha</p>
-        <input type="text">
-        <button>Cadastrar</button>
-        <a href="./login.html">Login</a>
+        <input type="text" id="senha" required>
+        <button type="submit">Cadastrar</button>
+        <a href="/">Login</a>
     </form>
+    <script src="js/cadastro.js"></script>
 </body>
 </html>
