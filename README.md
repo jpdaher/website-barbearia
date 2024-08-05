@@ -18,6 +18,7 @@ Aqui vai uma breve descrição da organização de diretórios do projeto:
 3. Verifique instalação do node
 4. Instale o git
 5. Clone o repositório
-6. Abra o CMD na pasta principal do projeto (barbearia)
-7. npm install
-8. npm run test
+6. Altere o arquivo .env (se necessário)
+7. Abra o CMD na pasta principal do projeto (barbearia)
+8. npm install
+9. npm run test
